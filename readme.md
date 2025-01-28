@@ -12,7 +12,7 @@ This tool enables security professionals and penetration testers to proactively 
 - It does not provide crawl feature, please use specific endpoint or api, (Yes, crawl feature is possible, but I do not see it's use, as CLI can be passed using loop on this tool)
 - Example: perl asat.pl --url http://testphp.vulnweb.com/showimage.php?file=
 - Output:
-- (https://i.ibb.co/ZMScT98/asat.png)
+![ASAT](https://i.ibb.co/ZMScT98/asat.png)
 ---
 
 ## **Vulnerabilities Scanned**
