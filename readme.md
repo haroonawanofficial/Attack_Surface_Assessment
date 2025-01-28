@@ -251,7 +251,7 @@ This tool includes, but is not limited to, comprehensive detection of vulnerabil
 - **Zero-Day Vulnerability Detection**: Identifies patterns that could indicate potential zero-day vulnerabilities.
 - **Social Engineering Points**: Flags features vulnerable to phishing or social engineering attacks.
 
-### **21. **And More...**
+### **21. And More...**
 - **Custom Payloads**: Enables scanning with user-defined payloads.
 - **Browser-Specific Attacks**: Tests vulnerabilities related to outdated browser plugins or extensions.
 - **Cloud Vulnerabilities**: Scans for misconfigured storage buckets and exposed cloud services.
