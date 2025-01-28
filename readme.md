@@ -1,6 +1,6 @@
 # **Attack Surface Assessment Tool**
 - Created by: Haroon Awan
-- Email: haroon@cyberzeus.pkse
+- Email: haroon@cyberzeus.pk
 
   
 ## **Overview**
