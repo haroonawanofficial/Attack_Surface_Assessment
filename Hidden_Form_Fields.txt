@@ -1,0 +1,2 @@
+<input type="hidden" name="price" value="9.99">
+<input type="hidden" name="role" value="admin">

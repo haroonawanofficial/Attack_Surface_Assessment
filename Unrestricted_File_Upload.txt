@@ -1,0 +1,7 @@
+test.php
+shell.php
+exploit.jsp
+<script>.php
+phpinfo.php
+payload.asp;.jpg
+shell.gif

@@ -1,0 +1,6 @@
+<html>
+  <head><title>Clickjacking test</title></head>
+  <body>
+    <iframe src="http://target.com" style="opacity:0;position:absolute;top:0;left:0;width:100%;height:100%"></iframe>
+  </body>
+</html>

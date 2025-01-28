@@ -1,0 +1,5 @@
+A*100
+A*1000
+A*5000
+%n format strings
+AAAA%pBBBB

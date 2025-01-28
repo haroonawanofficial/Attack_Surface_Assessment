@@ -1,0 +1,4 @@
+%0D%0ASet-Cookie: X=1
+\r\nContent-Length:0\r\n
+%0A%0D
+\n\rSet-Cookie: injected=1

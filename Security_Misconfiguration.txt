@@ -1,0 +1,5 @@
+/wp-admin/
+.env
+/config.php.bak
+/index.php~ 
+/admin/

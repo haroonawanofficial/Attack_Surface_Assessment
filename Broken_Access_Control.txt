@@ -1,0 +1,4 @@
+GET /admin
+GET /manager/html
+GET /api/admin/users
+HEAD /private

@@ -1,0 +1,7 @@
+../../etc/passwd
+../../boot.ini
+/etc/passwd%00
+../../../../../../etc/passwd
+C:\boot.ini
+C:/windows/win.ini
+file:///etc/passwd

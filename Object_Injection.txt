@@ -1,0 +1,2 @@
+O:8:"stdClass":1:{s:4:"test";s:11:"injected!!!";}
+O:9:"exploitObj":2:{s:4:"prop";s:8:"injection";s:4:"test";i:123;}

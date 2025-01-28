@@ -1,0 +1,5 @@
+%s %x %n
+%s%s%s
+%p%p%p%p
+%x%x%x
+%n%n

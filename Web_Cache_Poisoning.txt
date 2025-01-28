@@ -1,0 +1,5 @@
+X-Forwarded-Host: attacker.com
+X-Original-URL: /cache/inject
+Cache-Control: no-cache
+Accept-Encoding: gzip, deflate, br
+?fakeparam=somevalue

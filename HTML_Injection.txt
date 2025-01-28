@@ -1,0 +1,5 @@
+<b>Bold Text</b>
+<h1>Injected Header</h1>
+<hr>
+<img src=x onerror=alert('hi')>
+<div style="color:red">red text</div>

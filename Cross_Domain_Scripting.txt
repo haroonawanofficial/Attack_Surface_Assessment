@@ -1,0 +1,3 @@
+<script src="http://evil.com/xss.js"></script>
+<iframe src="http://malicious.com/"></iframe>
+CORS checks: Origin: evil.com

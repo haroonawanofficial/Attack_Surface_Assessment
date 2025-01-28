@@ -1,0 +1,3 @@
+<input type="hidden" name="admin" value="true">
+<!-- "price" hidden field from 100 to 1 -->
+<input type="hidden" name="max_discount" value="999">

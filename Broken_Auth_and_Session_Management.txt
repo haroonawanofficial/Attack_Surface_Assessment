@@ -1,0 +1,4 @@
+GET /account?user=admin HTTP/1.1
+Cookie: user=admin; role=admin
+X-Original-URL: /admin
+X-Forwarded-For: 127.0.0.1

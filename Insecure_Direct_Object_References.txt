@@ -1,0 +1,5 @@
+user_id=1
+user_id=2
+invoice=../../other_user_invoice.pdf
+GET /api/booking/9999
+GET /bank?account=1234

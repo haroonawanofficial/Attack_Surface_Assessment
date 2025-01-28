@@ -1,0 +1,3 @@
+Data Source=.;Initial Catalog=test;User Id=admin;Password=' or '1'='1
+Server=localhost;Database=prod;Trusted_Connection=yes;
+"Trusted_Connection=True;uid=sa;pwd=;"

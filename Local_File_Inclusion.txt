@@ -1,0 +1,5 @@
+../../etc/passwd
+../../etc/shadow
+..\\..\\boot.ini
+C:/windows/win.ini
+file:///C:/Windows/System32/drivers/etc/hosts

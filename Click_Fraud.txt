@@ -1,0 +1,3 @@
+<script>window.location='http://click.example.com/?affid=123';</script>
+<img src="http://ad.doubleclick.net/..." style="display:none;">
+iframe hidden

@@ -1,0 +1,4 @@
+Set-Cookie: sessionid=abc123
+JSESSIONID=9999
+session=predefinedvalue
+PHPSESSID=static

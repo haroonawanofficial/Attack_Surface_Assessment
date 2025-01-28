@@ -1,0 +1,4 @@
+Cookie: PHPSESSID=xyz
+Cookie: JSESSIONID=abc123
+Cookie: ASPSESSIONIDQQTQBRBR=ABCDEFGHIJKLMNOP
+Authorization: Bearer attackerAccessToken
