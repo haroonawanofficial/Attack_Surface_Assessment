@@ -1,12 +1,16 @@
 # **Attack Surface Assessment Tool**
 - Created by: Haroon Awan
-- Email: haroon@cyberzeus.pk
+- Email: haroon@cyberzeus.pkse
 
   
 ## **Overview**
 The **Attack Surface Assessment Tool** is a Perl-based security scanner designed to identify, analyze, and report vulnerabilities in web applications and servers. It aligns with key security frameworks such as **OWASP Top 10**, **SANS Top 25**, and **CEH (Certified Ethical Hacker)**, covering over **100 vulnerabilities** and more across various categories.
 
 This tool enables security professionals and penetration testers to proactively identify security flaws and harden systems against cyberattacks.
+
+## **How it scans**
+- It does not provide crawl feature, please use specific endpoint or api, (Yes, crawl feature is possible, but I do not see it's use, as CLI can be passed using loop on this tool)
+- Example: perl wvs.pl --url http://testphp.vulnweb.com/showimage.php?file=
 
 ---
 
