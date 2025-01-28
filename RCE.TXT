@@ -1,0 +1,5 @@
+payload.php?cmd=ls
+test.jsp?exec=whoami
+rce=system('ls');
+rce=Runtime.getRuntime().exec("calc");
+exec('uname -a');
