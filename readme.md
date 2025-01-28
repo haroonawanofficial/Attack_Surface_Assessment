@@ -13,7 +13,7 @@ This tool enables security professionals and penetration testers to proactively 
 - Example: perl asat.pl --url http://testphp.vulnweb.com/showimage.php?file=
 - Output:
 ![ASAT](https://i.ibb.co/ZMScT98/asat.png)
----
+
 
 ## **Vulnerabilities Scanned**
 
@@ -65,7 +65,7 @@ This tool enables security professionals and penetration testers to proactively 
 5. **Vulnerable API Endpoints**  
    - Discovering and testing insecure APIs.
 
----
+
 
 ## **Scan Capabilities**
 The tool supports advanced scanning techniques and can detect over **100 vulnerabilities and more**, leveraging various payloads and algorithms:
@@ -87,7 +87,6 @@ The tool supports advanced scanning techniques and can detect over **100 vulnera
 8. **Vulnerable APIs and Web Services**  
    - Testing API endpoints for insecure practices.
 
----
 
 ## **Framework Alignment**
 The tool aligns with the following frameworks to provide comprehensive coverage:
@@ -99,7 +98,6 @@ The tool aligns with the following frameworks to provide comprehensive coverage:
 3. **CEH (Certified Ethical Hacker)**  
    - Incorporates common penetration testing techniques taught in CEH.
 
----
 
 ## **Features**
 1. **Crawling and Deep Scanning**  
@@ -113,7 +111,6 @@ The tool aligns with the following frameworks to provide comprehensive coverage:
 5. **Detailed Reporting**  
    - Logs vulnerabilities with actionable insights.
 
----
 
 ## **How It Works**
 1. **Input URL**  
@@ -127,7 +124,6 @@ The tool aligns with the following frameworks to provide comprehensive coverage:
 5. **Comprehensive Output**  
    - Outputs results mapped to OWASP, SANS, and CEH categories.
 
----
 
 ## **Why Choose This Tool?**
 - **Comprehensive Vulnerability Coverage**  
@@ -139,7 +135,6 @@ The tool aligns with the following frameworks to provide comprehensive coverage:
 - **Detailed Reporting**  
   - Generates logs with actionable insights for remediation.
 
----
 
 ## **Supported Vulnerability Categories**
 
